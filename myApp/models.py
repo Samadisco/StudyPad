@@ -1,0 +1,11 @@
+from django.db import models
+
+# Create your models here.
+
+
+class Questions(models.Model):
+    question = models.TextField()
+    answer = models.TextField()
+
+    def __str__(self) -> str:
+        return (self.question)
