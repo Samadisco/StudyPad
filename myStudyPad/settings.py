@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-)2@_vb!fwz$o@!t&)a22r%=g6s#7^m9!zs*5ey8luzdjz@^&j4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -113,6 +114,18 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIR = (os.path.join(BASE_DIR, 'static'))
+
+# setting up media
+
+MEDIA_URL = '/multimedia/'
+MEDIA_ROOT = BASE_DIR / 'multimedia'
 
 
 # Static files (CSS, JavaScript, Images)
